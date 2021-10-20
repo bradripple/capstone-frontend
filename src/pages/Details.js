@@ -16,7 +16,7 @@ const Details = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios.put(`${REACT_APP_SERVER_URL}/wishlists`, {image: image._id})
+    Axios.put(`${REACT_APP_SERVER_URL}/wishlists`, { image: image._id })
       .then((response) => {
         console.log("===> Yay, new exercise add to routine");
         console.log("add exercise to routine response", response);
