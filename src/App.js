@@ -13,8 +13,10 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
-import Profile from './components/Profile';
-import Welcome from './components/Welcome';
+import Profile from './pages/Profile';
+import Welcome from './pages/Welcome';
+import Gallery from './pages/Gallery';
+import Details from './pages/Details';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -69,8 +71,10 @@ function App() {
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
+          <PrivateRoute path="/gallery" component={Gallery} user={currentUser} handleLogout={handleLogout} />
           <Route exact path="/" component={Welcome} />
           <Route path="/about" component={About} />
+          <Route path="/details" component={Details} />
         </Switch>
       </div>
       <Footer />
