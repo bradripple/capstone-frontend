@@ -5,7 +5,7 @@ import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 
 // CSS
-import './App.css';
+// import './App.css';
 
 // Components
 import Signup from './components/Signup';
@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="App">
       <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-      <div className="container mt-5">
+      <div className="mt-5">
         <Switch>
           <Route path='/signup' component={Signup} />
           <Route 

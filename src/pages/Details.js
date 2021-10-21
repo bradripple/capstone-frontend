@@ -28,10 +28,15 @@ const Details = (props) => {
   if (redirect) return <Redirect to="/profile" />;
 
   return (
-    <div>
-      <h1>{image.name}</h1>
-      <button onClick={handleSubmit}>Add to wishlist</button>
-      <img src={image.url} alt="" />
+    <div className="grid-block">
+      <div className="tile">
+        <h1>{image.name}</h1>
+        <p>{image.location}</p>
+        <div className="tile-link">
+          <img className="tile-img tile-img1" src={image.url} alt="" />
+        </div>
+      </div>
+      <button onClick={handleSubmit}>Add to WishList</button>
     </div>
   );
 };

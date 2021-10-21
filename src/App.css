@@ -1,6 +1,11 @@
-* {
-  margin: 0;
-  padding: 0;
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -9,15 +14,15 @@ body {
   font-size: 1rem;
   line-height: 1.25;
   background-color: #18222d;
-  border: 2px solid blue;
+  color: bisque;
 }
 
 .grid {
-  border: 2px solid red;
   width: 100vw;
   max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
+  border: 8px solid red;
 
   display: flex;
   -webkit-box-orient: horizontal;
@@ -33,8 +38,15 @@ body {
 }
 
 /* .image-grid {
-  -webkit-transform: rotateX(45deg) rotateZ(45deg);
-  transform: rotateX(45deg) rotateZ(45deg);
+  -webkit-transform: rotateX(15deg) rotateZ(15deg);
+  transform: rotateX(15deg) rotateZ(15deg);
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.image-grid:hover {
+  -webkit-transform: rotateX(0deg) rotateZ(0deg);
+  transform: rotateX(0deg) rotateZ(0deg);
   -webkit-perspective: 1000px;
   perspective: 1000px;
 } */

@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+.grid {
+  width: 100vw;
+  /* max-width: 60rem; */
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.grid_block {
+  border: 2px solid green;
+  /* width: 50%; */
+  max-width: 40rem;
+  min-height: 11.25rem;
+  padding: 1rem;
+}
+
+/* .image-grid {
+    -webkit-transform: rotateX(15deg) rotateZ(15deg);
+    transform: rotateX(15deg) rotateZ(15deg);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  }
+  
+  .image-grid:hover {
+    -webkit-transform: rotateX(0deg) rotateZ(0deg);
+    transform: rotateX(0deg) rotateZ(0deg);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+  } */
+
+.image_grid .tile_link:hover .tile_img {
+  top: -1rem;
+  left: -1rem;
+}
+
+.image_grid .tile_img {
+  position: relative;
+  top: 0;
+  left: 0;
+  -webkit-transition-property: opacity, top, left, box-shadow;
+  transition-property: opacity, top, left, box-shadow;
+}
+
+.tile_link {
+  display: block;
+}
+
+.tile_link:hover .tile_img {
+  opacity: 1;
+}
+
+.tile_link:hover .tile_img_link {
+  display: block;
+}
+
+.tile_link:hover .tile_img_link:hover .tile_img {
+  opacity: 0.5;
+}
+
+.tile_img {
+  border: 2px solid blue;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.125s;
+  transition-duration: 0.125s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+}
+.tile_link:hover .tile_img1 {
+  box-shadow: 5px 5px rgba(244, 170, 200, 0.4),
+    10px 10px rgba(244, 170, 200, 0.3), 15px 15px rgba(244, 170, 200, 0.2),
+    20px 20px rgba(244, 170, 200, 0.1), 25px 25px rgba(244, 170, 200, 0.05);
+}
