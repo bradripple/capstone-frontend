@@ -7,3 +7,12 @@ body {
 .logout-link {
   cursor: pointer;
 }
+
+.container {
+  border: 2px solid red;
+  width: 100%;
+}
+
+.App{
+  border: 2px solid blue;
+}

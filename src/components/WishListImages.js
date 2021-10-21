@@ -13,7 +13,7 @@ const WishListImages = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     window.location.reload();
-    
+
     Axios.delete(`${REACT_APP_SERVER_URL}/wishlists/${props._id}`)
       .then((response) => {
         console.log("===> deleting a image from wishlist");
@@ -22,13 +22,16 @@ const WishListImages = (props) => {
       .catch((error) => console.log("===> Error in Signup", error));
   };
 
-
   return (
-    <div>
-      <h1>{props.name}</h1>
+    <div className="grid-block">
+      <div className="app.tile">
+        <h1>{props.name}</h1>
+        <p>{props.location}</p>
+        <div className="tile-link">
+          <img className="tile-img tile-img1" src={props.url} alt="" />
+        </div>
+      </div>
       <button onClick={handleSubmit}>Delete from WishList</button>
-      <p>{props.location}</p>
-      <img src={props.url} alt="" />
     </div>
   );
 };

@@ -53,12 +53,8 @@ const Profile = (props) => {
   }
 
   const userData = user ? (
-    <div>
+    <div className="grid image-grid">
         {displayWishListImages}
-      <h1>Profile</h1>
-      <p>Name: {name}</p>
-      <p>Email: {email}</p>
-      <p>ID: {id}</p>
     </div>
   ) : (
     <h2>Loading...</h2>

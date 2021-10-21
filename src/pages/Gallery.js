@@ -4,6 +4,8 @@ import Axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import ImageList from "../components/ImageList";
 
+import style from '../components/ImageList.module.css';
+
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Gallery = () => {
@@ -39,7 +41,7 @@ const Gallery = () => {
 
   let displayImagesList = images ? allImages() : <h2>Hold your 🐎</h2>;
 
-  return <div className="grid image-grid">{displayImagesList}</div>;
+  return <div className={`${style.grid} ${style.image_grid}`}>{displayImagesList}</div>;
 };
 
 export default Gallery;
