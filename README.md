@@ -1,209 +1,213 @@
-# MERN Authentication Frontend
+# Ripple Photography
 
-| Components | Links to Code | Description |
-| --- | --- | --- |
-| `App`| [`App`](https://github.com/SEI802/mern-auth-frontend#app-component) | The component that manages the entire app |
-| `Signup`| [`Signup`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/signup.md) | Allow the user to signup |
-| `Login`| [`Login`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/login.md) | Allows the user to login to the app |
-| `Navbar`| [`Navbar`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/navbar.md) | Make `App` class component |
-| `Profile`| [`Profile`](#) | A component that displays the user profile information |
-| `setAuthToken`| [`setAuthToken`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/setAuthToken.md) | A utility function that adds a token to the `Authentication` header to manage current user |
-| `About`| [`About`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/other-components.md#about) | A component that decribes the app |
-| `Footer`| [`Footer`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/other-components.md#footer) | A footer that goes on each component |
-| `Welcome`| [`Welcome`](https://github.com/SEI802/mern-auth-frontend/blob/main/docs/other-components.md#welcome) | A welcome page for the user |
+## Link to App
+https://ripple-photography.herokuapp.com/
 
-### `App` Component
 
-### Imports for `App`
 
-```jsx
-// Imports
-import React, { useEffect, useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
+Homepage
+![Imgur](https://i.imgur.com/0Mv2Nwm.png)
 
-// CSS
-import './App.css';
+Sign Up 
+![Imgur](https://i.imgur.com/4KGryLN.png)
 
-// Components
-import Signup from './components/Signup';
-import About from './components/About';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import Navbar from './components/Navbar';
-import Profile from './components/Profile';
-import Welcome from './components/Welcome';
-```
+About Page
+![Imgur](https://i.imgur.com/1VmVnmL.png)
 
-### `useState` inside `App`
+Gallery Page
+![Imgur](https://i.imgur.com/BFGNXLC.jpg)
 
-```jsx
-function App() {
-  // Set state values
-  const [currentUser, setCurrentUser] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+## Concept and User Stories
+
+Site concept: Ripple Photography Portfolio site - stretch goals to incorporate a print store.
+
+* User needs to be able to browse a database of my photographs. 
+* User needs to be able to log in to create and view a wishlist. 
+* User needs to be able to read a little about me. 
+* User needs to be able to contact me through email. 
+
+Stretch Goals
+
+* User needs to be able to purchase prints.
+
+
+## Features
+
+* Login Authentication
+* Sessions to keep user logged in between pages
+* Flash messages for login/logout errors and successes
+* Utilizing ReactIcons for contact icons
+* Models that interact with databases using Mongoose
+* Photograph wishlist page that you can view your favorite Photographs
+
+
+## Models
+![Imgur](https://i.imgur.com/Tf0MwoT.png)
+
+## Sprints
+#### 1st sprint: ERD, Wireframing, and Planning : Monday 
+
+I spent the first day planning the general layout and look of the app. I also set up my wireframe and ERD.
+
+#### 2nd sprint: Setting up models and Routes - GET, POST, PUT, DELETE : Tuesday
+
+I was able to get the models together and the routes established for front and back end.
+
+#### 3rd sprint: Style inspiration and Card Animation : Wednesday - Thursday
+
+I spent possibly a little too much time looking at different examples and code snippets to find the right styling for this page. I eventually decided on a box shadow animation for the image cards and was able to implement it through out the site.
+
+```css
+.tile_img {
+  border: 2px inset gray;
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  -webkit-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.125s;
+  transition-duration: 0.125s;
+  -webkit-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  margin-top: 30px;
+  margin-bottom: 35px;
+}
+.tile_link:hover .tile_img1 {
+  box-shadow: 5px 5px rgba(244, 170, 200, 0.4),
+    10px 10px rgba(244, 170, 200, 0.3), 15px 15px rgba(244, 170, 200, 0.2),
+    20px 20px rgba(244, 170, 200, 0.1), 25px 25px rgba(244, 170, 200, 0.05);
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 ```
 
-### `PrivateRoute`
+#### 4th sprint: Final CSS, README, and final test : Friday - Monday
 
-```jsx
-const PrivateRoute = ({ component: Component, ...rest}) => {
-  let token = localStorage.getItem('jwtToken');
-  console.log('===> Hitting a Private Route');
-  return <Route {...rest} render={(props) => {
-    return token ? <Component {...rest} {...props} /> : <Redirect to="/login"/>
-  }} />
-}
-```
+* I used a video background for the landing page, about page and form pages
+* I implemented transform animation to animate the landing page logo and button
+* Incorporated a new font
+* I implemented a text-shadow animation to create a neon sign effect on the text
+* Updated the color scheme and made all the buttons look uniform
 
-### `useEffect` inside `App`
 
-```jsx
-useEffect(() => {
-    let token;
-
-    if (!localStorage.getItem('jwtToken')) {
-      setIsAuthenticated(false);
-      console.log('====> Authenticated is now FALSE');
-    } else {
-      token = jwt_decode(localStorage.getItem('jwtToken'));
-      setAuthToken(localStorage.getItem('jwtToken'));
-      setCurrentUser(token);
-    }
-  }, []);
-```
-
-### `nowCurrentUser`
-
-```jsx
-const nowCurrentUser = (userData) => {
-    console.log('===> nowCurrentUser is here.');
-    setCurrentUser(userData);
-    setIsAuthenticated(true);
-}
-```
-
-### `handleLogout`
-
-```jsx
-const handleLogout = () => {
-    if (localStorage.getItem('jwtToken')) {
-        // remove token for localStorage
-        localStorage.removeItem('jwtToken');
-        setCurrentUser(null);
-        setIsAuthenticated(false);
-    }
-}
-```
-
-### `return` of `App`
-
-```jsx
-return (
-<div className="App">
-    <h1>MERN Authentication</h1>
-    <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-    <div className="container mt-5">
-        <Switch>
-            <Route path='/signup' component={Signup} />
-            <Route 
-            path="/login"
-            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
-            />
-            <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
-            <Route exact path="/" component={Welcome} />
-            <Route path="/about" component={About} />
-        </Switch>
-    </div>
-    <Footer />
-</div>
-);
-```
-
-### Finished
-
-```jsx
-// Imports
-import React, { useEffect, useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
-
-// CSS
-import './App.css';
-
-// Components
-import Signup from './components/Signup';
-import About from './components/About';
-import Footer from './components/Footer';
-import Login from './components/Login';
-import Navbar from './components/Navbar';
-import Profile from './components/Profile';
-import Welcome from './components/Welcome';
-
-const PrivateRoute = ({ component: Component, ...rest}) => {
-  let token = localStorage.getItem('jwtToken');
-  console.log('===> Hitting a Private Route');
-  return <Route {...rest} render={(props) => {
-    return token ? <Component {...rest} {...props} /> : <Redirect to="/login"/>
-  }} />
+## Here is the css and jsx for my animated Ripple Photography logo on the landing page
+```css
+.text_box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-function App() {
-  // Set state values
-  const [currentUser, setCurrentUser] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(true);
+.heading_primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+}
 
- 
-  useEffect(() => {
-    let token;
+.heading_primary_main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 45px;
+  margin-bottom: 40px;
+  animation-name: moveInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+}
 
-    if (!localStorage.getItem('jwtToken')) {
-      setIsAuthenticated(false);
-      console.log('====> Authenticated is now FALSE');
-    } else {
-      token = jwt_decode(localStorage.getItem('jwtToken'));
-      setAuthToken(localStorage.getItem('jwtToken'));
-      setCurrentUser(token);
-    }
-  }, []);
+.heading_primary_sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  margin-bottom: 40px;
+  animation: moveInRight 3s ease-out;
+}
 
-  const nowCurrentUser = (userData) => {
-    console.log('===> nowCurrent is here.');
-    setCurrentUser(userData);
-    setIsAuthenticated(true);
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
   }
 
-  const handleLogout = () => {
-    if (localStorage.getItem('jwtToken')) {
-      // remove token for localStorage
-      localStorage.removeItem('jwtToken');
-      setCurrentUser(null);
-      setIsAuthenticated(false);
-    }
+  80% {
+    transform: translateX(10px);
   }
 
-  return (
-    <div className="App">
-      <Navbar handleLogout={handleLogout} isAuth={isAuthenticated} />
-      <div className="container mt-5">
-        <Switch>
-          <Route path='/signup' component={Signup} />
-          <Route 
-            path="/login"
-            render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
-          />
-          <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
-          <Route exact path="/" component={Welcome} />
-          <Route path="/about" component={About} />
-        </Switch>
-      </div>
-      <Footer />
-    </div>
-  );
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
 
-export default App;
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
 ```
+```jsx
+  <div>
+      <video
+        id={video.videoBG}
+        autoPlay
+        loop
+        muted
+        className={style.video}
+      >
+        <source src={ripple} type="video/mp4" />
+      </video>
+      <header className={style.header}>
+        <div className={style.text_box}>
+          <h1 className={`${style.heading_primary} ${style.h1}`}>
+            <span className={`${style.heading_primary_main} ${style.flux}`}>Ripple</span>
+            <span className={style.heading_primary_sub}>Photography</span>
+          </h1>
+          <Link to="/gallery" className={`${style.btn} ${style.btn_white} ${style.btn_animated}`}>Gallery</Link>
+        </div>
+      </header>
+    </div>
+```
+
+## Conclusion
+Building out this app was a lot of fun! Lots of technical and creative aspects to this project. It was a great opportunity to work on my process for solving problems and learning to ask the right questions. I learned a lot of new skills and got to incorporate some new CSS that was really exciting. 
+
+
+## Ideas to Implement
+* Payment portal
+* Ability to order prints
+* Display images by location
+* Admin portal to upload and delete photographs from database
