@@ -53,7 +53,7 @@ const Signup = () => {
     }
   };
 
-  if (redirect) return <Redirect to="/" />; // You can have them redirected to profile (your choice)
+  if (redirect) return <Redirect to="/login" />; // You can have them redirected to profile (your choice)
 
   return (
     <div className="row mt-4">
