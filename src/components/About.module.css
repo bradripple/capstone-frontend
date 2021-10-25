@@ -1,0 +1,38 @@
+.about {
+  text-align: center;
+  margin-bottom: 55px;
+}
+.about_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.img {
+  width: 20em;
+  border: 2px inset gray;
+  border-radius: 5px;
+}
+.item1 {
+  max-width: 400px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #28d7fe;
+}
+
+@media (max-width: 767px) {
+  .about_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  .img {
+      width: 15em;
+  }
+  .item1 {
+      width: 15em;
+  }
+}

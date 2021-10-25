@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import setAuthToken from "../utils/setAuthToken";
 import Axios from "axios";
 
+import style from "./ImageList.module.css";
+
 const { REACT_APP_SERVER_URL } = process.env;
 
 const WishListImages = (props) => {
@@ -23,15 +25,26 @@ const WishListImages = (props) => {
   };
 
   return (
-    <div className="grid-block">
-      <div className="app.tile">
-        <h1>{props.name}</h1>
-        <p>{props.location}</p>
-        <div className="tile-link">
-          <img className="tile-img tile-img1" src={props.url} alt="" />
+    <div className={style.grid_block}>
+      <h1>{props.name}</h1>
+      <p>{props.location}</p>
+      <div className={style.tile_link}>
+        <img
+          className={`${style.tile_img} ${style.tile_img1}`}
+          src={props.url}
+          alt=""
+        />
+      </div>
+      <div className={style.text_box}>
+        <div className={style.btn_box}>
+          <button
+            className={`${style.btn} ${style.btn_white}`}
+            onClick={handleSubmit}
+          >
+            Remove
+          </button>
         </div>
       </div>
-      <button onClick={handleSubmit}>Delete from WishList</button>
     </div>
   );
 };

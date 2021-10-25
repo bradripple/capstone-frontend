@@ -3,6 +3,8 @@ import { Redirect } from "react-router";
 import setAuthToken from "../utils/setAuthToken";
 import Axios from "axios";
 
+import style from "./Details.module.css";
+
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Details = (props) => {
@@ -28,15 +30,19 @@ const Details = (props) => {
   if (redirect) return <Redirect to="/profile" />;
 
   return (
-    <div className="grid-block">
-      <div className="tile">
+    <div className={`${style.grid} ${style.image_grid}`}>
+      <div className={style.grid_block}>
         <h1>{image.name}</h1>
         <p>{image.location}</p>
-        <div className="tile-link">
-          <img className="tile-img tile-img1" src={image.url} alt="" />
+        <div className={style.tile_link}>
+          <img
+            className={`${style.tile_img} ${style.tile_img1}`}
+            src={image.url}
+            alt=""
+          />
         </div>
+          <button className={`${style.btn} ${style.btn_white}`} onClick={handleSubmit}>Add to WishList</button>
       </div>
-      <button onClick={handleSubmit}>Add to WishList</button>
     </div>
   );
 };

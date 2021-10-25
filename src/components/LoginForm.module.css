@@ -1,0 +1,48 @@
+.card_container {
+  backface-visibility: hidden;
+}
+.card {
+  background-color: rgb(255, 255, 255, 0.001);
+  color: #28d7fe;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 65px;
+  padding: 15px 40px;
+  display: inline;
+  border-radius: 100px;
+  transition: all 0.2s;
+  box-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
+    0 0 5vw #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0a3940;
+  color: #146c80;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff,
+    0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe, 0.5vw 0.5vw 0.1vw #147280;
+  color: #28d7fe;
+}
+
+@media (max-width: 767px) {
+  .btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 7.5px 20px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative;
+    box-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
+      0 0 5vw #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0a3940;
+    color: #146c80;
+  }
+}
+

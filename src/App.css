@@ -1,153 +1,184 @@
-html {
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-size: 1rem;
-  line-height: 1.25;
-  background-color: #18222d;
-  color: bisque;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px;
 }
 
-.grid {
-  width: 100vw;
-  max-width: 60rem;
-  margin-left: auto;
-  margin-right: auto;
-  border: 8px solid red;
-
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.grid-block {
-  width: 50%;
-  min-height: 11.25rem;
-  padding: 1rem;
-}
-
-/* .image-grid {
-  -webkit-transform: rotateX(15deg) rotateZ(15deg);
-  transform: rotateX(15deg) rotateZ(15deg);
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-}
-
-.image-grid:hover {
-  -webkit-transform: rotateX(0deg) rotateZ(0deg);
-  transform: rotateX(0deg) rotateZ(0deg);
-  -webkit-perspective: 1000px;
-  perspective: 1000px;
-} */
-
-.image-grid .tile-link:hover .tile-img {
-  top: -1rem;
-  left: -1rem;
-}
-
-.image-grid .tile-img {
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(126, 213, 111, 0.7),
+      #28b485
+    ),
+    url("https://i.imgur.com/yQOjxZE.jpg");
+  background-size: cover;
+  background-position: top;
   position: relative;
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo_box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text_box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading_primary {
+  color: #fff;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+}
+
+.heading_primary_main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
+  /* animation-delay: 3s;
+    animation-iteration-count: 3; */
+}
+
+.heading_primary_sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn_white {
+  background-color: #fff;
+  color: #777;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition-property: opacity, top, left, box-shadow;
-  transition-property: opacity, top, left, box-shadow;
+  z-index: -1;
+  transition: all 0.4s;
 }
 
-.tile-link {
-  display: block;
+.btn_white::after {
+  background-color: #fff;
 }
 
-.tile-link:hover .tile-img {
-  opacity: 1;
+.btn:hover::after {
+  transform: scalex(1.4) scaleY(1.6);
+  opacity: 0;
 }
 
-.tile-link:hover .tile-img-link {
-  display: block;
-}
-
-.tile-link:hover .tile-img-link:hover .tile-img {
-  opacity: 0.5;
-}
-
-.tile-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  opacity: 1;
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  -webkit-transition-duration: 0.125s;
-  transition-duration: 0.125s;
-  -webkit-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
-}
-.tile-link:hover .tile-img1 {
-  box-shadow: 5px 5px rgba(244, 170, 200, 0.4),
-    10px 10px rgba(244, 170, 200, 0.3), 15px 15px rgba(244, 170, 200, 0.2),
-    20px 20px rgba(244, 170, 200, 0.1), 25px 25px rgba(244, 170, 200, 0.05);
-}
-
-.tile-link:hover .tile-img2 {
-  box-shadow: 5px 5px rgba(45, 186, 233, 0.4), 10px 10px rgba(45, 186, 233, 0.3),
-    15px 15px rgba(45, 186, 233, 0.2), 20px 20px rgba(45, 186, 233, 0.1),
-    25px 25px rgba(45, 186, 233, 0.05);
-}
-
-.tile-link:hover .tile-img3 {
-  box-shadow: 5px 5px rgba(214, 221, 244, 0.4),
-    10px 10px rgba(214, 221, 244, 0.3), 15px 15px rgba(214, 221, 244, 0.2),
-    20px 20px rgba(214, 221, 244, 0.1), 25px 25px rgba(214, 221, 244, 0.05);
-}
-
-.tile-link:hover .tile-img4 {
-  box-shadow: 5px 5px rgba(82, 119, 192, 0.4), 10px 10px rgba(82, 119, 192, 0.3),
-    15px 15px rgba(82, 119, 192, 0.2), 20px 20px rgba(82, 119, 192, 0.1),
-    25px 25px rgba(82, 119, 192, 0.05);
-}
-
-.tile-link:hover .tile-img5 {
-  box-shadow: 5px 5px rgba(138, 218, 245, 0.4),
-    10px 10px rgba(138, 218, 245, 0.3), 15px 15px rgba(138, 218, 245, 0.2),
-    20px 20px rgba(138, 218, 245, 0.1), 25px 25px rgba(138, 218, 245, 0.05);
-}
-
-.tile-link:hover .tile-img6 {
-  box-shadow: 5px 5px rgba(203, 215, 193, 0.4),
-    10px 10px rgba(203, 215, 193, 0.3), 15px 15px rgba(203, 215, 193, 0.2),
-    20px 20px rgba(203, 215, 193, 0.1), 25px 25px rgba(203, 215, 193, 0.05);
-}
-
-.tile-link:hover .tile-img7 {
-  box-shadow: 5px 5px rgba(91, 209, 250, 0.4), 10px 10px rgba(91, 209, 250, 0.3),
-    15px 15px rgba(91, 209, 250, 0.2), 20px 20px rgba(91, 209, 250, 0.1),
-    25px 25px rgba(91, 209, 250, 0.05);
-}
-
-.tile-link:hover .tile-img8 {
-  box-shadow: 5px 5px rgba(145, 156, 196, 0.4),
-    10px 10px rgba(145, 156, 196, 0.3), 15px 15px rgba(145, 156, 196, 0.2),
-    20px 20px rgba(145, 156, 196, 0.1), 25px 25px rgba(145, 156, 196, 0.05);
-}
-
-.tile-link:hover .tile-img9 {
-  box-shadow: 5px 5px rgba(188, 97, 129, 0.4), 10px 10px rgba(188, 97, 129, 0.3),
-    15px 15px rgba(188, 97, 129, 0.2), 20px 20px rgba(188, 97, 129, 0.1),
-    25px 25px rgba(188, 97, 129, 0.05);
-}
-
-.tile-link:hover .tile-img10 {
-  box-shadow: 5px 5px rgba(4, 140, 231, 0.4), 10px 10px rgba(4, 140, 231, 0.3),
-    15px 15px rgba(4, 140, 231, 0.2), 20px 20px rgba(4, 140, 231, 0.1),
-    25px 25px rgba(4, 140, 231, 0.05);
+.btn_animated {
+  animation: moveInBottom 0.5s ease-out 0.32s;
+  animation-fill-mode: backwards;
 }

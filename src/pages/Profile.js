@@ -4,6 +4,8 @@ import setAuthToken from "../utils/setAuthToken";
 import { Link } from "react-router-dom";
 import WishListImages from "../components/WishListImages";
 
+import style from "../components/ImageList.module.css";
+
 const { REACT_APP_SERVER_URL } = process.env;
 
 const Profile = (props) => {
@@ -27,24 +29,28 @@ const Profile = (props) => {
     };
     fetchWishList();
   }, []);
-  console.log('wishlist', wishList)
+  console.log("wishlist", wishList);
 
   const allWishListImages = () => {
-      return wishList.map((e, i) => {
-          return (
-            <WishListImages
-            key={i}
-            _id={e._id}
-            name={e.name}
-            url={e.url}
-            location={e.location}
-            subject={e.subject}
-            />
-          )
-      })
-  }
+    return wishList.map((e, i) => {
+      return (
+        <WishListImages
+          key={i}
+          _id={e._id}
+          name={e.name}
+          url={e.url}
+          location={e.location}
+          subject={e.subject}
+        />
+      );
+    });
+  };
 
-  let displayWishListImages = wishList ? ( allWishListImages()) : ( <h2>Hold your 🐎</h2>)
+  let displayWishListImages = wishList ? (
+    allWishListImages()
+  ) : (
+    <h2>Hold your 🐎</h2>
+  );
 
   // make a condition that compares exp and current time
   if (currentTime >= expirationTime) {
@@ -53,8 +59,13 @@ const Profile = (props) => {
   }
 
   const userData = user ? (
-    <div className="grid image-grid">
+    <div>
+      <div>
+      {/* <Link to="/user">Update Info</Link> */}
+      </div>
+      <div className={`${style.grid} ${style.image_grid}`}>
         {displayWishListImages}
+      </div>
     </div>
   ) : (
     <h2>Loading...</h2>

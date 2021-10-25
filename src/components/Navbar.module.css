@@ -1,0 +1,26 @@
+.nav_item {
+  animation: flux 7s linear infinite;
+  -moz-animation: flux 7s linear infinite;
+  -webkit-animation: flux 7s linear infinite;
+  -o-animation: flux 7s linear infinite;
+}
+.nav_brand {
+  animation: flux 7s linear infinite;
+  -moz-animation: flux 7s linear infinite;
+  -webkit-animation: flux 7s linear infinite;
+  -o-animation: flux 7s linear infinite;
+  text-decoration: none;
+}
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041ff, 0 0 3vw #1041ff, 0 0 10vw #1041ff,
+      0 0 10vw #1041ff, 0 0 0.4vw #8bfdfe, 0.5vw 0.5vw 0.1vw #147280;
+    color: #28d7fe;
+  }
+  50% {
+    text-shadow: 0 0 0.5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180,
+      0 0 5vw #082180, 0 0 0.2vw #082180, 0.5vw 0.5vw 0.1vw #0a3940;
+    color: #146c80;
+  }
+}

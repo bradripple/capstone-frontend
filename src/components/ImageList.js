@@ -10,7 +10,7 @@ const ImageList = (props) => {
   return (
       <div className={style.grid_block}>
 
-          <h1>{props.name}</h1>
+          <h2 className={style.name}>{props.name}</h2>
           <Link
             className={style.tile_link}
             to={{
