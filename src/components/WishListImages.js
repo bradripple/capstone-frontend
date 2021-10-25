@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import setAuthToken from "../utils/setAuthToken";
 import Axios from "axios";
+import REACT_APP_SERVER_URL from "../config";
+
 
 import style from "./ImageList.module.css";
 
-const { REACT_APP_SERVER_URL } = process.env;
+// const { REACT_APP_SERVER_URL } = process.env;
 
 const WishListImages = (props) => {
   let token = localStorage.getItem("jwtToken");

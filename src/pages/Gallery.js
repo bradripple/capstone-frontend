@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import ImageList from "../components/ImageList";
+import REACT_APP_SERVER_URL from "../config";
+
 
 import style from '../components/ImageList.module.css';
 
-const { REACT_APP_SERVER_URL } = process.env;
+// const { REACT_APP_SERVER_URL } = process.env;
 
 const Gallery = () => {
   const [images, setImages] = useState();

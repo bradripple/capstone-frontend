@@ -4,11 +4,13 @@ import jwt_decode from "jwt-decode";
 import { Redirect } from "react-router-dom";
 import setAuthToken from "../utils/setAuthToken";
 import ripple from "../video/ripples.mp4";
+import REACT_APP_SERVER_URL from "../config";
+
 
 import style from "./LoginForm.module.css";
 import video from "./Video.module.css";
 
-const { REACT_APP_SERVER_URL } = process.env;
+// const { REACT_APP_SERVER_URL } = process.env;
 
 const Login = (props) => {
   const [email, setEmail] = useState("");

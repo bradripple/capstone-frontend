@@ -5,7 +5,9 @@ import video from "./Video.module.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
-const { REACT_APP_SERVER_URL } = process.env;
+import REACT_APP_SERVER_URL from "../config";
+
+// const { REACT_APP_SERVER_URL } = process.env;
 
 
 const Signup = () => {
@@ -51,7 +53,7 @@ const Signup = () => {
     }
   };
 
-  if (redirect) return <Redirect to="/login" />; // You can have them redirected to profile (your choice)
+  if (redirect) return <Redirect to="/" />; // You can have them redirected to profile (your choice)
 
   return (
     <div className="row mt-4">

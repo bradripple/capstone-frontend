@@ -3,8 +3,10 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { Redirect } from 'react-router-dom';
 import setAuthToken from '../utils/setAuthToken';
+import REACT_APP_SERVER_URL from "../config";
 
-const { REACT_APP_SERVER_URL } = process.env;
+
+// const { REACT_APP_SERVER_URL } = process.env;
 
 const UserDetails = (props) => {
     const [email, setEmail] = useState('');

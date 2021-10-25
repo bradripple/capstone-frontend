@@ -3,10 +3,12 @@ import Axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import { Link } from "react-router-dom";
 import WishListImages from "../components/WishListImages";
+import REACT_APP_SERVER_URL from "../config";
+
 
 import style from "../components/ImageList.module.css";
 
-const { REACT_APP_SERVER_URL } = process.env;
+// const { REACT_APP_SERVER_URL } = process.env;
 
 const Profile = (props) => {
   const { handleLogout, user } = props;
