@@ -14,7 +14,7 @@ const Welcome = () => {
         autoPlay
         loop
         muted
-        className={style.video}
+        poster="./components/photos/poster.jpg"
       >
         <source src={ripple} type="video/mp4" />
       </video>

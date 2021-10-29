@@ -57,6 +57,7 @@ const Login = (props) => {
         autoPlay
         loop
         muted
+        poster="photos/poster.jpg"
         className={style.video}
       >
         <source src={ripple} type="video/mp4" />

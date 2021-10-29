@@ -20,6 +20,14 @@
   font-weight: 800;
   color: #28d7fe;
 }
+.viewport-header {
+  position: relative;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media (max-width: 767px) {
   .about_container {

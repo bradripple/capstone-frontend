@@ -1,28 +1,28 @@
 #videoBG {
-    position: fixed;
-    z-index: -1;
-    width: 100vw;
-    margin-top: -55px;
-    margin-right: -200px;
+  position: fixed;
+  z-index: -1;
+  width: 100vw;
+  margin-top: -55px;
+  margin-right: -200px;
 }
 @media (min-aspect-ratio: 16/9) {
-    #videoBG {
-        width: 100%;
-        height: auto;
-    }
+  #videoBG {
+    width: 100%;
+    height: auto;
+  }
 }
 @media (max-aspect-ratio: 16/9) {
-    #videoBG {
-        width: auto;
-        height: 100%;
-    }
+  #videoBG {
+    width: auto;
+    height: 100%;
+  }
 }
-/* @media (max-width: 767px) {
+@media (max-width: 767px) {
     #videoBG {
         display: none;
     }
     body {
-        background: url();
+        background: url('./photos/poster.jpg');
         background-size: cover;
     }
-} */
+}
