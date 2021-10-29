@@ -59,9 +59,11 @@ const Signup = () => {
     <div className="row mt-4">
       <video
         id={video.videoBG}
+        playsinline
         autoPlay
         loop
         muted
+        className={style.video}
       >
         <source src={ripple} type="video/mp4" />
       </video>

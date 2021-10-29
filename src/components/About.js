@@ -7,7 +7,14 @@ import style from "./About.module.css";
 const About = () => {
   return (
     <div>
-      <video id={video.videoBG} autoPlay loop muted>
+      <video
+        id={video.videoBG}
+        playsinline
+        autoPlay
+        loop
+        muted
+        className={style.video}
+      >
         <source src={ripple} type="video/mp4" />
       </video>
       <h1 className={style.about}>Bradley Ripple</h1>

@@ -10,6 +10,7 @@ const Welcome = () => {
     <div>
       <video
         id={video.videoBG}
+        playsinline
         autoPlay
         loop
         muted
